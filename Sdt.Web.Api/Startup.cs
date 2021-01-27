@@ -50,12 +50,20 @@ namespace Sdt.Web.Api
             });
 
 
-            services.AddControllers(); //Api
+            services.AddControllers(options =>
+            {
+                options.ReturnHttpNotAcceptable = true;
+                options.RespectBrowserAcceptHeader = true;
+            })
+                .AddXmlSerializerFormatters(); //Api
+
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "Sdt", 
+                    Title = "Sdt",
                     Version = "v1",
                     Description = "Dies ist ein Sdt-Api",
                     Contact = new OpenApiContact
