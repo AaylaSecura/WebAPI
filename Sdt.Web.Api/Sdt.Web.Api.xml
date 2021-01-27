@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sdt.Web.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Sdt.Web.Api.Controllers.AutorsController.Get">
+            <summary>
+            Gibt alle Autoren zurück
+            </summary>
+            <returns>Autoren</returns>
+        </member>
+        <member name="M:Sdt.Web.Api.Controllers.AutorsController.Get(System.Int32)">
+            <summary>
+            Gibt den gesuchten Autor zurück
+            </summary>
+            <param name="id">Autor-Id</param>
+            <returns>Autor</returns>
+        </member>
+        <member name="M:Sdt.Web.Api.Controllers.AutorsController.Post(Sdt.Web.Api.Dto.AutorDTO)">
+            <summary>
+            Erstellt einen neuen Autor
+            </summary>
+            <param name="autorDto">Autor-Dto</param>
+            <returns>Neu erstellten Autor</returns>
+        </member>
+    </members>
+</doc>

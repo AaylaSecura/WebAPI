@@ -4,6 +4,11 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\A.I\Desktop\Aok\Sdt\Sdt.Web.Api\Sdt.Web.Api.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.2" />
@@ -18,6 +23,12 @@
     <ProjectReference Include="..\Sdt.Data\Sdt.Data.csproj" />
     <ProjectReference Include="..\Sdt.Domain\Sdt.Domain.csproj" />
     <ProjectReference Include="..\Sdt.Web.Common\Sdt.Web.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Sdt.Web.Api.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

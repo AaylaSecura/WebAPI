@@ -9,7 +9,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -51,7 +53,21 @@ namespace Sdt.Web.Api
             services.AddControllers(); //Api
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sdt.Web.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Sdt", 
+                    Version = "v1",
+                    Description = "Dies ist ein Sdt-Api",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Super Admin",
+                        Email = "admin@example.com"
+                    }
+                });
+
+                var xmlfile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlfile);
+                c.IncludeXmlComments(xmlPath);
             });
         }
 

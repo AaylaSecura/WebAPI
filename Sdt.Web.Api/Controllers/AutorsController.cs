@@ -32,6 +32,10 @@ namespace Sdt.Web.Api.Controllers
 
         #region GET
 
+        /// <summary>
+        /// Gibt alle Autoren zurück
+        /// </summary>
+        /// <returns>Autoren</returns>
         [HttpGet]  // api/autors
         public async Task<IEnumerable<AutorDTO>> Get()
         {
@@ -42,6 +46,11 @@ namespace Sdt.Web.Api.Controllers
             return autorenDto;
         }
 
+        /// <summary>
+        /// Gibt den gesuchten Autor zurück
+        /// </summary>
+        /// <param name="id">Autor-Id</param>
+        /// <returns>Autor</returns>
         [HttpGet("{id}")]  // api/autors/id => api/autors/1
         public async Task<IActionResult> Get(int id)
         {
@@ -56,6 +65,11 @@ namespace Sdt.Web.Api.Controllers
 
         #region POST
 
+        /// <summary>
+        /// Erstellt einen neuen Autor
+        /// </summary>
+        /// <param name="autorDto">Autor-Dto</param>
+        /// <returns>Neu erstellten Autor</returns>
         [HttpPost]
         public async Task<IActionResult> Post(AutorDTO autorDto)
         {
