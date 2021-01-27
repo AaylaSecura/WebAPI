@@ -27,8 +27,8 @@ namespace Sdt.Data.Repository
 
         public async Task<IEnumerable<Autor>> GetAllAutorsAsync()
         {
-            //return await GetAll().Include(c => c.Sprueche).ToListAsync();
-            return await GetAll().ToListAsync();
+            return await GetAll().Include(c => c.Sprueche).ToListAsync();
+            //return await GetAll().ToListAsync();
         }
 
         public async Task<Autor> GetAutorByIdAsync(int autorId)
