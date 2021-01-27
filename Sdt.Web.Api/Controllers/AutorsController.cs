@@ -49,7 +49,7 @@ namespace Sdt.Web.Api.Controllers
 
             if (autor is null) return NotFound();
 
-            return Ok(DtoFactory.CreateAutorDto(autor));
+            return Ok(_mapper.Map<AutorDTO>(autor));
         }
 
         #endregion
