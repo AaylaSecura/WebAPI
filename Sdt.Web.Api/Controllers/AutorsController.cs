@@ -61,7 +61,18 @@ namespace Sdt.Web.Api.Controllers
         {
             //if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            return Ok(autorDto);
+            var autor = _mapper.Map<Autor>(autorDto);
+
+            if (TryValidateModel(autor))
+            {
+                _repository.Autor.Add(autor);
+                await _repository.SaveAsync();
+
+                var autorCreatedDto = _mapper.Map<AutorDTO>(autor);
+                return CreatedAtAction(nameof(Get), new {id = autorCreatedDto.AutorId}, autorCreatedDto);
+            }
+
+            return BadRequest(ModelState);
         }
 
         #endregion
