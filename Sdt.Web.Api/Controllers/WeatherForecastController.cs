@@ -7,6 +7,28 @@ using System.Threading.Tasks;
 
 namespace Sdt.Web.Api.Controllers
 {
+    public interface IBier
+    {
+        string GibBier();
+    }
+
+    public class Union : IBier
+    {
+        public string GibBier()
+        {
+            return "Union";
+        }
+    } 
+    
+    public class Veltins : IBier
+    {
+        public string GibBier()
+        {
+            return "Veltins";
+        }
+    }
+
+
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -17,23 +39,18 @@ namespace Sdt.Web.Api.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IBier _bier;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IBier bier)
         {
             _logger = logger;
+            _bier = bier;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IActionResult Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return Ok(_bier.GibBier());
         }
     }
 }

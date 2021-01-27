@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using Sdt.Data.Context;
 using Sdt.Data.Contracts;
 using Sdt.Data.Repository;
+using Sdt.Web.Api.Controllers;
 using Sdt.Web.Common.Middleware;
 
 namespace Sdt.Web.Api
@@ -35,6 +36,7 @@ namespace Sdt.Web.Api
             //Repository
             services.AddScoped<IAutorRepository, AutorRepository>();
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            services.AddScoped<IBier, Veltins>();
 
             services.AddDbContext<SdtDataContext>(options =>
             {
