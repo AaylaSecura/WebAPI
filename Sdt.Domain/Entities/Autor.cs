@@ -23,5 +23,8 @@ namespace Sdt.Domain.Entities
         public DateTime? Geburtsdatum { get; set; }
 
         public virtual IList<Spruch> Sprueche { get; set; } = new List<Spruch>();
+
+        public byte[] Photo { get; set; }
+        public string PhotoMimeType { get; set; }
     }
 }
