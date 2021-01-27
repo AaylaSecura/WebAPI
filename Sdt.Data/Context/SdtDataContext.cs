@@ -15,7 +15,7 @@ namespace Sdt.Data.Context
 
         public SdtDataContext(DbContextOptions<SdtDataContext> options) : base(options)
         {
-            
+           // Database.EnsureCreated();
         }
     }
 }

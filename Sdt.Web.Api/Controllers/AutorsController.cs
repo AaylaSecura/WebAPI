@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Sdt.Data.Context;
 using Sdt.Domain.Entities;
 
 namespace Sdt.Web.Api.Controllers
@@ -14,9 +15,11 @@ namespace Sdt.Web.Api.Controllers
     {
         #region Members/Constructors
 
-        public AutorsController()
+        private readonly SdtDataContext _context;
+
+        public AutorsController(SdtDataContext context)
         {
-            
+            _context = context;
         }
 
         #endregion
@@ -26,7 +29,7 @@ namespace Sdt.Web.Api.Controllers
         [HttpGet]  // api/autors
         public ActionResult<List<Autor>> Get()
         {
-            var autoren = new List<Autor> {new Autor {Name = "Ali"}, new Autor { Name = "Du" } };
+            var autoren = _context.Autoren.ToList();
 
             return autoren;
         } 
