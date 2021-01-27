@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Sdt.Data.Context;
 using Sdt.Data.Contracts;
@@ -19,10 +20,12 @@ namespace Sdt.Web.Api.Controllers
         #region Members/Constructors
 
         private readonly IRepositoryWrapper _repository;
+        private readonly IMapper _mapper; //Automapper
 
-        public AutorsController(IRepositoryWrapper repository)
+        public AutorsController(IRepositoryWrapper repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         #endregion
@@ -33,11 +36,12 @@ namespace Sdt.Web.Api.Controllers
         public async Task<IEnumerable<AutorDTO>> Get()
         {
             var autoren = await _repository.Autor.GetAllAutorsAsync();
-            var autorenDto = autoren.Select(c => DtoFactory.CreateAutorDto(c)).ToList();
+            // var autorenDto = autoren.Select(c => DtoFactory.CreateAutorDto(c)).ToList();
+            var autorenDto = _mapper.Map<List<AutorDTO>>(autoren);
 
             return autorenDto;
-        } 
-        
+        }
+
         [HttpGet("{id}")]  // api/autors/id => api/autors/1
         public async Task<IActionResult> Get(int id)
         {
