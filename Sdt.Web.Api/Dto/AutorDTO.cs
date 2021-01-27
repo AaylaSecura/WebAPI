@@ -19,6 +19,8 @@ namespace Sdt.Web.Api.Dto
 
         [Required]
         public string Beschreibung { get; set; }
+
+        [NoFutureDate(ErrorMessage = @"{0} darf nicht in der Zukunft liegen")]
         public DateTime? Geburtsdatum { get; set; }
 
         public virtual List<SpruchDTO> Sprueche { get; set; }
