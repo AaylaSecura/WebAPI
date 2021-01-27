@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Sdt.Data.Context;
+using Sdt.Data.Contracts;
+using Sdt.Data.Repository;
 using Sdt.Web.Common.Middleware;
 
 namespace Sdt.Web.Api
@@ -30,6 +32,10 @@ namespace Sdt.Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Repository
+            services.AddScoped<IAutorRepository, AutorRepository>();
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+
             services.AddDbContext<SdtDataContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));

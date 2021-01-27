@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Sdt.Data.Context;
+using Sdt.Data.Contracts;
 using Sdt.Domain.Entities;
 
 namespace Sdt.Web.Api.Controllers
@@ -16,11 +17,11 @@ namespace Sdt.Web.Api.Controllers
     {
         #region Members/Constructors
 
-        
+        private readonly IRepositoryWrapper _repository;
 
-        public AutorsController()
+        public AutorsController(IRepositoryWrapper repository)
         {
-            
+            _repository = repository;
         }
 
         #endregion
@@ -28,9 +29,9 @@ namespace Sdt.Web.Api.Controllers
         #region GET
 
         [HttpGet]  // api/autors
-        public async Task<ActionResult<List<Autor>>> Get()
+        public async Task<IEnumerable<Autor>> Get()
         {
-            var autoren = await _context.Autoren.ToListAsync();
+            var autoren = await _repository.Autor.GetAllAutorsAsync();
 
             return autoren;
         } 
@@ -38,7 +39,7 @@ namespace Sdt.Web.Api.Controllers
         [HttpGet("{id}")]  // api/autors/id => api/autors/1
         public async Task<IActionResult> Get(int id)
         {
-            var autor = await _context.Autoren.FindAsync(id);
+            var autor = await _repository.Autor.GetAutorByIdAsync(id);
 
             if (autor is null) return NotFound();
 
