@@ -17,5 +17,12 @@ namespace Sdt.Data.Context
         {
            // Database.EnsureCreated();
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Seed();
+        }
     }
 }
