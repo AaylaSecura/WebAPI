@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Sdt.Data.Context;
 using Sdt.Domain.Entities;
 
@@ -27,17 +28,21 @@ namespace Sdt.Web.Api.Controllers
         #region GET
 
         [HttpGet]  // api/autors
-        public ActionResult<List<Autor>> Get()
+        public async Task<ActionResult<List<Autor>>> Get()
         {
-            var autoren = _context.Autoren.ToList();
+            var autoren = await _context.Autoren.ToListAsync();
 
             return autoren;
         } 
         
         [HttpGet("{id}")]  // api/autors/id => api/autors/1
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return Ok("Hallo Id");
+            var autor = await _context.Autoren.FindAsync(id);
+
+            if (autor is null) return NotFound();
+
+            return Ok(autor);
         }
 
         #endregion
