@@ -16,11 +16,11 @@ namespace Sdt.Web.Api.Controllers
     {
         #region Members/Constructors
 
-        private readonly SdtDataContext _context;
+        
 
-        public AutorsController(SdtDataContext context)
+        public AutorsController()
         {
-            _context = context;
+            
         }
 
         #endregion
