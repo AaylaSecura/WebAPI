@@ -53,5 +53,17 @@ namespace Sdt.Web.Api.Controllers
         }
 
         #endregion
+
+        #region POST
+
+        [HttpPost]
+        public async Task<IActionResult> Post(AutorDTO autorDto)
+        {
+            //if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            return Ok(autorDto);
+        }
+
+        #endregion
     }
 }

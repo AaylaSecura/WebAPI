@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Sdt.Domain.Entities;
+using Sdt.Web.Common.Validation;
 
 namespace Sdt.Web.Api.Dto
 {
@@ -11,8 +12,9 @@ namespace Sdt.Web.Api.Dto
     {
         public int AutorId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Bitte geben Sie einen Namen ein!")]
         [StringLength(50)]
+        [ForbiddenInput("administrator,admin,root,god")]
         public string Name { get; set; }
 
         [Required]
