@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Sdt.Data.Context;
 using Sdt.Web.Common.Middleware;
 
 namespace Sdt.Web.Api
@@ -28,6 +30,12 @@ namespace Sdt.Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<SdtDataContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+
             services.AddControllers(); //Api
             services.AddSwaggerGen(c =>
             {
