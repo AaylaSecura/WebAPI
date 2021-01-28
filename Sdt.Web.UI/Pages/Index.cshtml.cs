@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
@@ -32,9 +33,12 @@ namespace Sdt.Web.UI.Pages
             {
                 using var client = _clientFactory.CreateClient("externalapiservice");
 
-                var response = await client.GetStringAsync("sprueche/randomsdt");
-                SdtVm = JsonSerializer.Deserialize<SpruchDesTagesViewModel>(response,new JsonSerializerOptions { PropertyNameCaseInsensitive = true});
+                //Klassischer Zugriff
+                // var response = await client.GetStringAsync("sprueche/randomsdt");
+                // SdtVm = JsonSerializer.Deserialize<SpruchDesTagesViewModel>(response,new JsonSerializerOptions { PropertyNameCaseInsensitive = true});
 
+                //Moderner Zugriff
+                SdtVm = await client.GetFromJsonAsync<SpruchDesTagesViewModel>($"{client.BaseAddress}sprueche/randomsdt");
             }
             catch (Exception ex)
             {
