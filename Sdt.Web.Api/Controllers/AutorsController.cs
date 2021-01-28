@@ -92,9 +92,20 @@ namespace Sdt.Web.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<AutorDTO>> PostWithImage()
+        public async Task<ActionResult<AutorDTO>> PostWithImage(AutorCreateDto autorCreateDto)
         {
+            var autor = _mapper.Map<Autor>(autorCreateDto);
 
+            if (TryValidateModel(autor))
+            {
+                _repository.Autor.Add(autor);
+                await _repository.SaveAsync();
+
+                var autorCreatedDto = _mapper.Map<AutorDTO>(autor);
+                return CreatedAtAction(nameof(Get), new { id = autorCreatedDto.AutorId }, autorCreatedDto);
+            }
+
+            return BadRequest(ModelState);
         }
 
         #endregion
