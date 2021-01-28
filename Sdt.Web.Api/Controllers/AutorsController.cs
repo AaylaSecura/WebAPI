@@ -91,8 +91,9 @@ namespace Sdt.Web.Api.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<AutorDTO>> PostWithImage(AutorCreateDto autorCreateDto)
+        [HttpPost("autorimage")]  //api/autors/autorimage
+        [Consumes("multipart/form-data")]
+        public async Task<ActionResult<AutorDTO>> PostWithImage([FromForm] AutorCreateDto autorCreateDto)
         {
             var autor = _mapper.Map<Autor>(autorCreateDto);
 
