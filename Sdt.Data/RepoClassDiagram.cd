@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Sdt.Data.Repository.RepositoryBase&lt;T, TKey&gt;">
-    <Position X="7.25" Y="0.5" Width="2.5" />
+    <Position X="10.5" Y="0.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAACAAEAAAAAAAAAAQAAEAAAAAAgAAAgEAAAA=</HashCode>
       <FileName>Repository\RepositoryBase.cs</FileName>
@@ -9,10 +9,18 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Sdt.Data.Repository.AutorRepository">
-    <Position X="4.75" Y="5.25" Width="3.5" />
+    <Position X="7.75" Y="5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAQAAAIAAAAAAAAAAgAAAAAAAAgAAQA=</HashCode>
       <FileName>Repository\AutorRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sdt.Data.Repository.SpruchRepository">
+    <Position X="12" Y="5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\SpruchRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -28,6 +36,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAQAAAIAAAAAAAAAAgAAAAAAAAgAAQA=</HashCode>
       <FileName>Contracts\IAutorRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Sdt.Data.Contracts.ISpruchRepository">
+    <Position X="4.25" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\ISpruchRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

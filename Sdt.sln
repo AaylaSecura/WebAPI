@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdt.Web.Api", "Sdt.Web.Api\Sdt.Web.Api.csproj", "{577195A9-C569-4C2D-B5D3-C290E4563EEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sdt.Web.Api", "Sdt.Web.Api\Sdt.Web.Api.csproj", "{577195A9-C569-4C2D-B5D3-C290E4563EEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdt.Domain", "Sdt.Domain\Sdt.Domain.csproj", "{FB5F369A-FE90-4D4D-B5F9-5747C74C1B5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sdt.Domain", "Sdt.Domain\Sdt.Domain.csproj", "{FB5F369A-FE90-4D4D-B5F9-5747C74C1B5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdt.Data", "Sdt.Data\Sdt.Data.csproj", "{AA39AB37-0091-41E7-ACDC-08568DDBCA26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sdt.Data", "Sdt.Data\Sdt.Data.csproj", "{AA39AB37-0091-41E7-ACDC-08568DDBCA26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdt.Web.Common", "Sdt.Web.Common\Sdt.Web.Common.csproj", "{58977E6B-06E2-478D-AE1A-4EC77B823D09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sdt.Web.Common", "Sdt.Web.Common\Sdt.Web.Common.csproj", "{58977E6B-06E2-478D-AE1A-4EC77B823D09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdt.Web.UI", "Sdt.Web.UI\Sdt.Web.UI.csproj", "{401FFC94-7067-40C8-BC0E-A4580FE6DA95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{58977E6B-06E2-478D-AE1A-4EC77B823D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58977E6B-06E2-478D-AE1A-4EC77B823D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58977E6B-06E2-478D-AE1A-4EC77B823D09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{401FFC94-7067-40C8-BC0E-A4580FE6DA95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{401FFC94-7067-40C8-BC0E-A4580FE6DA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{401FFC94-7067-40C8-BC0E-A4580FE6DA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{401FFC94-7067-40C8-BC0E-A4580FE6DA95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
