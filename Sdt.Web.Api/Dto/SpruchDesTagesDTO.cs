@@ -13,7 +13,7 @@ namespace Sdt.Web.Api.Dto
 
         public int AutorId { get; set; }
 
-        public string AutorName { get; set; }
+        public string AutorName { get; set; } // Klassenname + Eigenschaft
 
         public string AutorBeschreibung { get; set; }
 

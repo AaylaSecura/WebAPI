@@ -14,6 +14,12 @@ namespace Sdt.Web.Api.Profiles
         {
             CreateMap<Spruch, SpruchDTO>()
                 .ForMember(dest => dest.AutorName, opt => opt.MapFrom(src => src.Autor.Name));
+
+            CreateMap<Spruch, SpruchDesTagesDTO>()
+                .ForMember(dest => dest.AutorBild, opt => opt.MapFrom(src => src.Autor.Photo))
+                .ForMember(dest => dest.AutorBildType, opt => opt.MapFrom(src => src.Autor.PhotoMimeType));
+
+            //.ForMember(c => c.AutorId, opt => opt.Ignore());
         }
     }
 }

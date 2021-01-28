@@ -41,6 +41,7 @@ namespace Sdt.Web.Api
 
             //Repository
             services.AddScoped<IAutorRepository, AutorRepository>();
+            services.AddScoped<ISpruchRepository, SpruchRepository>();
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             services.AddScoped<IBier, Veltins>();
 
