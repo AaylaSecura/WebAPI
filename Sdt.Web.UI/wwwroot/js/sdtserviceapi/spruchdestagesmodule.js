@@ -1,4 +1,4 @@
-﻿export class   {
+﻿export class SpruchDesTages {
     constructor(sdtUI, apiUrl) {
         this.sdt = null;
         this.sdtUI = sdtUI;
