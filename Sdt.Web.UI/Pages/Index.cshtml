@@ -5,6 +5,26 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="jumbotron">
+        <h5 class="text-center">Spruch des Tages</h5>
+        <p class="text-center">
+            <!-- TODO: Bild -->
+        </p>
+        <blockquote class="text-center">
+            <cite class="lead">@Model.SdtVm?.SpruchText</cite>
+        </blockquote>
+        <p></p>
+        <p class="text-right">
+            <small>
+                <span>@Model.SdtVm?.AutorName</span> - <span>@Model.SdtVm?.AutorBeschreibung</span>
+                <br />
+                <span>
+                    @if (Model.SdtVm.AutorGeburtsdatum.HasValue)
+                    {
+                        @Model.SdtVm.AutorGeburtsdatum.Value.ToShortDateString()
+                    }
+                </span>
+            </small>
+        </p>
+    </div>
 </div>
