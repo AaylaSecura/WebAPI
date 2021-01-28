@@ -37,6 +37,8 @@ namespace Sdt.Web.Api.Controllers
         /// </summary>
         /// <returns>Autoren</returns>
         [HttpGet]  // api/autors
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IEnumerable<AutorDTO>> Get()
         {
             var autoren = await _repository.Autor.GetAllAutorsAsync();
@@ -87,6 +89,12 @@ namespace Sdt.Web.Api.Controllers
             }
 
             return BadRequest(ModelState);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<AutorDTO>> PostWithImage()
+        {
+
         }
 
         #endregion

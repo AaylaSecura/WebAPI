@@ -54,8 +54,7 @@ namespace Sdt.Web.Api
             {
                 options.ReturnHttpNotAcceptable = true;
                 options.RespectBrowserAcceptHeader = true;
-            })
-                .AddXmlSerializerFormatters(); //Api
+            }).AddXmlSerializerFormatters(); //Api
 
 
 
